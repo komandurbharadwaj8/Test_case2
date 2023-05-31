@@ -3,6 +3,8 @@
   gather_facts: false
   become: true
   become_method: sudo
+  vars:
+    ansible_become_pass: "Unzerbrechlichemusik@213"
 
   tasks:
     - name: Copy Dockerfile
