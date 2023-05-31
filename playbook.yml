@@ -2,6 +2,7 @@
   hosts: local
   gather_facts: false
   become: true
+  become_method: sudo
 
   tasks:
     - name: Copy Dockerfile
