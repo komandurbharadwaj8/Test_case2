@@ -1,0 +1,29 @@
+- name: Install NGINX using Docker
+  hosts: local
+  gather_facts: false
+  become: true
+
+  tasks:
+    - name: Copy Dockerfile
+      copy:
+        src: Dockerfile
+        dest: /tmp/Dockerfile
+
+    - name: Build Docker image
+      command: docker build -t my-nginx-image /tmp
+      args:
+        chdir: /tmp
+      changed_when: false
+
+    - name: Run Docker container
+      command: docker run -d --name my-nginx-container -p 80:80 my-nginx-image
+      changed_when: false
+
+    - name: Copy sample HTML file
+      copy:
+        src: sample.html
+        dest: /tmp/sample.html
+
+    - name: Copy HTML file to Docker container
+      command: docker cp /tmp/sample.html my-nginx-container:/usr/share/nginx/html
+      changed_when: false
