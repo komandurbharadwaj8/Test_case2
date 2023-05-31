@@ -6,8 +6,8 @@
   tasks:
     - name: Copy Dockerfile
       copy:
-        src: Dockerfile
-        dest: /tmp/Dockerfile
+        src: /home/user/firstcase-2/dockerfile
+        dest: /tmp/dockerfile
 
     - name: Build Docker image
       command: docker build -t my-nginx-image /tmp
