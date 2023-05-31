@@ -16,7 +16,7 @@
       changed_when: false
 
     - name: Run Docker container
-      command: docker run -d --name my-nginx-container -p 80:80 my-nginx-image
+      command: docker run -d --name my-nginx-container -p 83:83 my-nginx-image
       changed_when: false
 
     - name: Copy sample HTML file

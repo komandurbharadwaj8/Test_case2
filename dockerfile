@@ -5,7 +5,7 @@ FROM nginx
 COPY sample.html /usr/share/nginx/html/
 
 # Expose port 80 for web traffic
-EXPOSE 80
+EXPOSE 83
 
 # Start NGINX server
 CMD ["nginx", "-g", "daemon off;"]
